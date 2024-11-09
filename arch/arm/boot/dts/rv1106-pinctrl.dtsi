@@ -105,7 +105,7 @@
 
 	fspi {
 		/omit-if-no-ref/
-		fspi_ins: fspi-pins {
+		fspi_pins: fspi-pins {
 			rockchip,pins =
 				/* fspi_clk */
 				<4 RK_PB1 2 &pcfg_pull_up_drv_level_2>,
