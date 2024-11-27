@@ -17,7 +17,7 @@
 	};
 	
 	chosen {
-		bootargs = "earlycon=uart8250,mmio32,0xff4c0000 console=ttyS2,115200 rw rk_dma_heap_cma=64M rootwait=3 snd_soc_core.prealloc_buffer_size_kbytes=16 coherent_pool=0";
+		bootargs = "earlycon=uart8250,mmio32,0xff4c0000 console=ttyS2,115200 rw rk_dma_heap_cma=64M rootwait=3 snd_soc_core.prealloc_buffer_size_kbytes=16 coherent_pool=0 console=tty1";
 	};
 	
 	adc-keys {
@@ -380,13 +380,16 @@
 	display@0{
 		compatible = "adafruit,yx240qv29", "ilitek,ili9341";
 		reg = <0>;
-		spi-max-frequency = <32000000>;
-		fps = <30>;
+		spi-max-frequency = <64000000>;
+		fps = <60>;
 		dc = <&gpio1 RK_PC4 GPIO_ACTIVE_HIGH>;
 		reset = <&gpio1 RK_PC6 GPIO_ACTIVE_LOW>;
     	led = <&gpio1 RK_PC5 GPIO_ACTIVE_HIGH>;	//BL
-		rotation = <270>;
+		rotate = <90>;
+		width = <240>;
+		height = <320>;
 		buswidth = <8>;
+		bgr;
 	};
 };
 
@@ -399,7 +402,7 @@
 		#address-cells = <1>;
 		#size-cells = <1>;
 		compatible = "spi-nand";
-		spi-max-frequency = <100000000>;
+		spi-max-frequency = <50000000>;
 		spi-tx-bus-width = <4>;
 		spi-rx-bus-width = <4>;
 		reg = <0>;
